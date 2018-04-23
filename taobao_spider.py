@@ -14,7 +14,7 @@ class taobao():
         self.conn_mysql = pymysql.connect(host="127.0.0.1", user='root', password='root', db='tb')
 
     """
-	@ 获取商品的url、名称、显示价格和月销售量
+    @ 获取商品的url、名称、显示价格和月销售量
     """
     def get_info(self, page_url, urls, titles, prices, sales):
         response = self.session.get(page_url, headers=self.ua, verify=False)
@@ -40,7 +40,7 @@ class taobao():
             sales.append(d)
 
     """
-	@ 将获取到的信息写入数据库
+    @ 将获取到的信息写入数据库
     """
     def insert_mysql(self, title, url, price, sale):
         sql = "insert into goods(title,url,price,sale) values('" + title + "','" + url + "','" + price + "','" + sale + "')"
@@ -50,7 +50,7 @@ class taobao():
 
 
 if __name__ == '__main__':
-	keyword = input("请输入搜索的商品关键字：")
+    keyword = input("请输入搜索的商品关键字：")
     name = quote(keyword)
     a = taobao()
     # 循环搜索100页
