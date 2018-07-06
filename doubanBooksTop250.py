@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# _*_ coding:utf-8 _*_
 import time,json
 import requests
 from requests.exceptions import RequestException
