@@ -18,10 +18,8 @@ class get_url:
         self.plates_id = []
         self.conn_mysql = pymysql.connect(host='127.0.0.1', user='root', password='root', db='hexun')
 
-    """
-    @ 获取首页中的博客url及所有板块id
-    """
     def hp_url(self, url):
+        '''获取首页中的博客url及所有板块id'''
         # get请求首页信息
         response = self.session.get(url, headers=self.ua, verify=False)
         homepage_data1 = response.content.decode('gbk')
@@ -42,10 +40,8 @@ class get_url:
                 print(Error)
                 continue
 
-    """
-    @ 获取板块中的博客url
-    """
     def plate(self, plate_link):
+        '''获取板块中的博客url'''
         # get请求板块信息
         plate_response = self.session.get(plate_link, headers=self.ua, verify=False)
         plate_data1 = plate_response.content.decode('gbk')
@@ -56,10 +52,8 @@ class get_url:
             if '_d.html' in k:
                 self.blog_urls.append(k)
 
-    """
-    @ 获取博客信息
-    """
     def get_blog(self, blog_url):
+        '''获取博客信息'''
         headers = {
             'Pragma': 'no-cache',
             'Proxy-Connection': 'keep-alive',
@@ -93,16 +87,15 @@ class get_url:
             print('-' * 100)
             print(err)
 
-    """
-    @ 写入数据库
-    """
     def write_db(self, title, url, click_count, comment_count):
+        '''写入数据库'''
         sql = "insert into blog_info(title,url,clickCount,commentCount) values('" + title + "','" + url + "','" + click_count + "','" + comment_count + "')"
         self.conn_mysql.query(sql)
         self.conn_mysql.commit()
 
 
 if __name__ == '__main__':
+    '''程序入口'''
     url = 'http://blog.hexun.com/'
     a = get_url()
     # 请求首页信息
