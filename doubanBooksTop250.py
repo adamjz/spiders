@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 from pyquery import PyQuery
 
 
-# url = 'https://book.douban.com/top250?start=0'
 def getPage(url):
     '''爬取指定url地址的信息'''
     try:
