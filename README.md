@@ -1,6 +1,6 @@
 # Python爬虫
-####<font color=#FF4500>所有爬虫均使用python3编写</font>  
-######代码均为练习编写，某些代码可能已失效           
+##<font color=#FF4500>所有爬虫均使用python3编写</font>  
+###代码均为练习编写，某些代码可能已失效           
 
 * 【[爬取豆瓣图书Top250信息](https://book.douban.com/top250)】[doubanBooksTop250.py](https://github.com/adamjz/spiders/blob/master/doubanBooksTop250.py)   
 * 【[淘宝](https://www.taobao.com/)某一商品频道商品信息爬虫】[taobao_spider.py](https://github.com/adamjz/spiders/blob/master/taobao_spider.py)    
